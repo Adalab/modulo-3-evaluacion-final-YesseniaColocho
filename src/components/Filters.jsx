@@ -8,7 +8,7 @@ function Filter({update}) {
     return (
       <>
        <form onSubmit={handleSumit}>
-        <input type="text" placeholder="Busca un personaje" onChange={(e)=> update(e.target.value) } />
+        <input type="text" placeholder="Busca un personaje" value={localStorage.getItem('searchQuery')} onChange={(e)=> update(e.target.value.toLowerCase())} />
        </form>
       </>
     )
