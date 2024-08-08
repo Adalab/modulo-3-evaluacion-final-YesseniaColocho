@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function CharacterDetail({ id }) {
   const [character, setcharacter] = useState(null);
@@ -17,7 +18,7 @@ function CharacterDetail({ id }) {
     <>
       {character && !character.error ? (
         <>
-          <a className="return" href="http://localhost:5173/"> &#171; Volver</a>
+          <Link className="return" to="/"> &#171; Volver</Link>
 
           <div className="characters__details">
             <div className="image">
