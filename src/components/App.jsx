@@ -3,6 +3,7 @@ import CharacterList from "./CharacterList";
 import Filter from "./Filters";
 import { matchPath, Route, Routes, useLocation } from "react-router-dom";
 import CharacterDetail from "./CharacterDetail";
+import logo from "../assets/logo2.png";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -20,6 +21,7 @@ function App() {
   const [error, seterror] = useState("");
 
   const handleUpdate = (query) => {
+    console.log(query);
     localStorage.setItem("searchQuery", query);
     fetch(`https://rickandmortyapi.com/api/character?name=${query}`)
       .then(function (response) {
@@ -37,13 +39,17 @@ function App() {
 
   return (
     <>
-      <h3 className="title">Rick Y Morty</h3>
+      <div className="container-logo">
+        <img className="title" src={logo} />
+      </div>
       <Routes>
         <Route
           path="/"
           element={
             <>
-              <Filter update={handleUpdate} />
+              <div className="filter-container">
+                <Filter update={handleUpdate} />
+              </div>
               {error}
               <CharacterList characters={characters} />
             </>

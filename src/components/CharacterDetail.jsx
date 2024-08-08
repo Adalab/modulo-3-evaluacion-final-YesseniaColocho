@@ -17,12 +17,30 @@ function CharacterDetail({ id }) {
     <>
       {character && !character.error ? (
         <>
-          <img src={character.image}></img>
-          <div>{character.name}</div>
-          <div>{character.species}</div>
-          <div>{character.origin.name}</div>
-          <div>{character.episode.length}</div>
-          <div>{character.status}</div>
+          <a className="return" href="http://localhost:5173/"> &#171; Volver</a>
+
+          <div className="characters__details">
+            <div className="image">
+              <img src={character.image}></img>
+            </div>
+            <div className="info">
+              <div>
+                <b>Name:</b> {character.name}
+              </div>
+              <div>
+                <b>Especie:</b> {character.species}
+              </div>
+              <div>
+                <b>Planeta:</b> {character.origin.name}
+              </div>
+              <div>
+                <b>Episodios:</b> {character.episode.length}
+              </div>
+              <div>
+                <b>Estado:</b> {character.status}
+              </div>
+            </div>
+          </div>
         </>
       ) : character && character.error ? (
         "El personaje que buscas no existe aún..."
