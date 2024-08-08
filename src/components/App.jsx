@@ -20,7 +20,7 @@ function App() {
   const [error, seterror] = useState("");
 
   const handleUpdate = (query) => {
-    localStorage.setItem('searchQuery', query)
+    localStorage.setItem("searchQuery", query);
     fetch(`https://rickandmortyapi.com/api/character?name=${query}`)
       .then(function (response) {
         return response.json();
@@ -37,7 +37,7 @@ function App() {
 
   return (
     <>
-      <h3>Rick Y Morty</h3>
+      <h3 className="title">Rick Y Morty</h3>
       <Routes>
         <Route
           path="/"
